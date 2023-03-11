@@ -1,3 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: itzme
+  Date: 3/6/2023
+  Time: 1:57 PM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<%@ page import="com.example.projectone.DBConnection" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -21,6 +31,8 @@
 
 </head>
 <body>
+<% Connection conn= DBConnection.getConn();
+    out.print(conn);%>
 <%@include file="includes/navbar.jsp"%>
 <%@include file="home.jsp"%>
 <%@include file="includes/footer.jsp"%>
