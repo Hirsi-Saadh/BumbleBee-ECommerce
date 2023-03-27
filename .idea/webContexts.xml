@@ -4,6 +4,9 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/includes/footer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/includes" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/product.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/sellerRegistration.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
       </map>
     </option>

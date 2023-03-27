@@ -70,7 +70,7 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Login</a></li>
+                        <li><a class="dropdown-item" href="seller-center/index.jsp">Login</a></li>
                         <li><a class="dropdown-item" href="#">Forgot Password</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Sign Up</a></li>

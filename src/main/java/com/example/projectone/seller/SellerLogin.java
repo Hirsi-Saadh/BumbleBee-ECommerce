@@ -25,7 +25,7 @@ public class SellerLogin extends HttpServlet {
 
         if (seller != null && seller.getPassword().equals(hashedPassword)) {
             // Authentication successful, redirect to success page
-            response.sendRedirect("seller-center/success.jsp");
+            response.sendRedirect("seller-center/dashboard.jsp");
         } else {
             // Authentication failed, redirect to error page
             response.sendRedirect("seller-center/sellerRegistration.jsp");
