@@ -17,12 +17,15 @@
 <body>
 <div class="d-flex">
 <%@include file="includes/sidebar.jsp"%>
+    <div class="container-fluid d-block" style="width: 100%; height:30%">
+        <%@include file="includes/topnav.jsp"%>
+        <div>
 
-<div class="d-block">
+<div class="d-block" style="margin-left: 5%; margin-top: 5%">
 
-    <h1>Products</h1>
-    <p><a href="product?action=add">Add Product</a></p>
-    <table>
+    <h1 >Products</h1>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='product?action=add';">Add Product</button>
+    <table class="table">
         <thead>
         <tr>
             <th>Name</th>
@@ -38,8 +41,8 @@
                 <td>${products.description}</td>
                 <td>${products.price}</td>
                 <td>
-                    <a href="product?action=edit&amp;id=${products.id}">Edit</a>
-                    <a href="product?action=delete&amp;id=${products.id}">Delete</a>
+                    <a href="product?action=edit&amp;id=${products.id}"><i class="fa fa-pencil" style="color: black"></i></a>
+                    <a href="product?action=delete&amp;id=${products.id}"><i class="fa fa-trash" style="color: red"></i></a>
                 </td>
             </tr>
         </c:forEach>
