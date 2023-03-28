@@ -4,11 +4,10 @@ import com.example.projectone.DBConnection;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -19,15 +18,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet(name = "AddProduct", value = "/add-product")
+@WebServlet(name = "ProductUpdateServlet", value = "/product-update")
 @MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
-public class AddProduct extends HttpServlet {
+public class UpdateProduct extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         // get form data
+        String productId = request.getParameter("productId");
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String category = request.getParameter("category");
@@ -44,8 +44,8 @@ public class AddProduct extends HttpServlet {
             inputStream = filePart.getInputStream();
         }
 
-        // insert product data into database
-        String sql = "INSERT INTO products (name, description, category, price, image, dimensions, weight, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        // update product data in database
+        String sql = "UPDATE products SET name = ?, description = ?, category = ?, price = ?, image = ?, dimensions = ?, weight = ?, color = ? WHERE id = ?";
         try {
 
             Connection conn = DBConnection.getConn();
@@ -63,6 +63,7 @@ public class AddProduct extends HttpServlet {
             statement.setString(6, dimensions);
             statement.setString(7, weight);
             statement.setString(8, color);
+            statement.setString(9, productId);
 
             statement.executeUpdate();
             statement.close();
@@ -73,11 +74,7 @@ public class AddProduct extends HttpServlet {
 
         // display success message in alert box
         response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script>alert('Product added successfully!')</script>");
-
-        // display success message in alert box
-//        response.setContentType("text/html;charset=UTF-8");
-//        response.getWriter().write("<script>alert('Product added successfully!')</script>");
+        response.getWriter().write("<script>alert('Product updated successfully!')</script>");
 
         // redirect to product list page
         response.sendRedirect("./seller-center/product.jsp");

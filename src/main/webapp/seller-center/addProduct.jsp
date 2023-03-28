@@ -23,7 +23,7 @@
         <%@include file="includes/topnav.jsp"%>
         <div>
 <h1 style="margin-left: 5%; margin-top: 5%">Add Product</h1>
-<form class="needs-validation" action="../add-product" method="post" style="margin-left: 5%; width: 50%" novalidate>
+<form class="needs-validation" action="../add-product" method="post" enctype="multipart/form-data" style="margin-left: 5%; width: 50%" novalidate>
     <label for="name" class="form-label">Product Name:</label>
     <input class="form-control" type="text" id="name" name="name" required>
     <div class="valid-feedback">Looks good!</div>
@@ -38,12 +38,27 @@
     </select>
     <br>
 
-    <br>
     <label class="form-label" for="description">Description:</label>
     <textarea class="form-control" id="description" name="description"></textarea>
     <br>
     <label class="form-label" for="price">Price:</label>
-    <input class="form-control" type="text" id="price" name="price" required>
+    <input class="form-control" type="text" id="price" name="price" step="0.01" min="0" required>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Enter valid price</div>
+    <br>
+    <label class="form-label" for="image">Image:</label>
+    <input class="form-control" type="file" name="image" id="image" >
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Add product image</div>
+    <br>
+    <label class="form-label" for="dimensions">Dimensions:</label>
+    <input class="form-control" type="text" name="dimensions" id="dimensions">
+    <br>
+    <label class="form-label" for="weight">Weight:</label>
+    <input class="form-control" type="text" name="weight" id="weight">
+    <br>
+    <label class="form-label" for="color">Color:</label>
+    <input class="form-control" type="text" name="color" id="color">
     <br>
     <button class="btn btn-primary" type="submit">ADD</button>
 </form>
@@ -51,6 +66,11 @@
         </div>
     </div>
 </div>
+
+<form action="../view-products" method="GET">
+<%--    <input type="hidden" name="param1" value="value1">--%>
+    <button type="submit">Go to MyServlet</button>
+</form>
 
 <script>
     (function () {

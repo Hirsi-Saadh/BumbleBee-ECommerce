@@ -1,5 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.projectone.DBConnection" %>
-<%@ page import="java.sql.Connection" %><%--
+<%@ page import="java.sql.Connection" %>
+<%--
+
   Created by IntelliJ IDEA.
   User: itzme
   Date: 3/26/2023
@@ -7,6 +10,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Product Management - Bumblebee</title>
@@ -24,25 +28,37 @@
 <div class="d-block" style="margin-left: 5%; margin-top: 5%">
 
     <h1 >Products</h1>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='product?action=add';">Add Product</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/seller-center/addProduct.jsp';">Add Product</button>
     <table class="table">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Category</th>
             <th>Price</th>
-            <th>Actions</th>
+            <th>Image</th>
+            <th>Dimensions</th>
+            <th>Weight</th>
+            <th>Color</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${products}" var="products">
+        <c:forEach items="${products}" var="product">
             <tr>
-                <td>${products.name}</td>
-                <td>${products.description}</td>
-                <td>${products.price}</td>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.category}</td>
+                <td>${product.price}</td>
+                <td><img style="height: 100px" src="data:image/jpeg;base64,${product.imageBase64}"/></td>
+                <td>${product.dimensions}</td>
+                <td>${product.weight}</td>
+                <td>${product.color}</td>
                 <td>
-                    <a href="product?action=edit&amp;id=${products.id}"><i class="fa fa-pencil" style="color: black"></i></a>
-                    &nbsp;<a href="product?action=delete&amp;id=${products.id}"><i class="fa fa-trash" style="color: red"></i></a>
+                    <a href="${pageContext.request.contextPath}/seller-center/updateProduct.jsp?id=${product.id}"><i class="fa fa-pencil" style="color: black"></i></a>
+                    &nbsp;<a href="./delete-product?productId=${product.id}"><i class="fa fa-trash" style="color: red"></i></a>
                 </td>
             </tr>
         </c:forEach>

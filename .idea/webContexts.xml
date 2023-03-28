@@ -8,6 +8,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/product.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/sellerRegistration.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/seller-center/updateProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/seller-center" />
       </map>
     </option>
   </component>
