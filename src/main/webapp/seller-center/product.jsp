@@ -42,7 +42,7 @@
                 <td>${products.price}</td>
                 <td>
                     <a href="product?action=edit&amp;id=${products.id}"><i class="fa fa-pencil" style="color: black"></i></a>
-                    <a href="product?action=delete&amp;id=${products.id}"><i class="fa fa-trash" style="color: red"></i></a>
+                    &nbsp;<a href="product?action=delete&amp;id=${products.id}"><i class="fa fa-trash" style="color: red"></i></a>
                 </td>
             </tr>
         </c:forEach>

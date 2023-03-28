@@ -23,21 +23,55 @@
         <%@include file="includes/topnav.jsp"%>
         <div>
 <h1 style="margin-left: 5%; margin-top: 5%">Add Product</h1>
-<form action="../add-product" method="post" style="margin-left: 5%; width: 30%">
-    <label for="name" class="form-label">Name:</label>
-    <input class="form-control" type="text" id="name" name="name">
+<form class="needs-validation" action="../add-product" method="post" style="margin-left: 5%; width: 50%" novalidate>
+    <label for="name" class="form-label">Product Name:</label>
+    <input class="form-control" type="text" id="name" name="name" required>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Enter product name</div>
+    <br>
+    <label for="category" class="form-label">Product Category:</label>
+    <select class="form-select" aria-label="select category" id="category" name="category">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <br>
+
     <br>
     <label class="form-label" for="description">Description:</label>
     <textarea class="form-control" id="description" name="description"></textarea>
     <br>
     <label class="form-label" for="price">Price:</label>
-    <input class="form-control" type="text" id="price" name="price">
+    <input class="form-control" type="text" id="price" name="price" required>
     <br>
-    <input type="submit" value="Add">
+    <button class="btn btn-primary" type="submit">ADD</button>
 </form>
 <p style="margin-left: 5%"><a href="products">Back to Products</a></p>
         </div>
     </div>
 </div>
+
+<script>
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 </body>
 </html>
