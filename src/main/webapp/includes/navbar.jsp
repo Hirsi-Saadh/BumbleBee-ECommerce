@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--suppress XmlDuplicatedId --%>
 <%--
   Created by IntelliJ IDEA.
@@ -122,21 +122,21 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <c:if test="${sessionScope.loggedIn}">
-                            <form action="user-logout" method="post">
-                                <button type="submit">Logout</button>
-                            </form>
-                        </c:if>
+<%--                        <c:if test="${sessionScope.loggedIn}">--%>
+<%--                            <form action="user-logout" method="post">--%>
+<%--                                <button type="submit">Logout</button>--%>
+<%--                            </form>--%>
+<%--                        </c:if>--%>
 
                         <!-- If the user is not logged in, show a login button -->
-                        <c:if test="${empty sessionScope.loggedIn}">
+<%--                        <c:if test="${empty sessionScope.loggedIn}">--%>
                             <li><a type="button" id="login-button" class="dropdown-item">Login</a></li>
                             <li><a class="dropdown-item" href="#">Forgot Password</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Sign Up</a></li>
 
 
-                        </c:if>
+<%--                        </c:if>--%>
                     </ul>
                 </div>
                 </li>
@@ -154,7 +154,7 @@
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             <br>
-            <label for="password">Password</label>
+            <label for="password">Passwords</label>
             <input type="password" id="password" name="password" required>
             <br>
             <button type="submit">Login</button>
@@ -168,21 +168,21 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Register</h2>
-        <form id="register-form" action="user-register" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+        <form class="needs-validation" id="register-form" action="user-register" method="post">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username" required>
             <br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" required>
             <br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" required>
             <br>
-            <label for="address">Username</label>
-            <input type="text" id="address" name="address" required>
+            <label class="form-label" for="address">Address</label>
+            <input class="form-control" type="text" id="address" name="address" required>
             <br>
-            <label for="phone">Username</label>
-            <input type="text" id="phone" name="phone" required>
+            <label class="form-label" for="phone">Phone</label>
+            <input class="form-control" type="text" id="phone" name="phone" required>
             <br>
             <button type="submit">Register</button>
             <button type="button" id="login-button-f">login</button>
