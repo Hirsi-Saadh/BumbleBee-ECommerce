@@ -48,7 +48,7 @@ public class UserLogin extends HttpServlet {
             dispatcher.include(request, response);
         }
     }
-
+//
     private String hashPassword(String password) {
         String hashedPassword = null;
 
