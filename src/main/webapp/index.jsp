@@ -31,9 +31,10 @@
 
 </head>
 <body>
+
+<%@include file="includes/navbar.jsp"%>
 <% Connection conn= DBConnection.getConn();
     out.print(conn);%>
-<%@include file="includes/navbar.jsp"%>
 <%@include file="home.jsp"%>
 <%@include file="includes/footer.jsp"%>
 
