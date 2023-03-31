@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ page import="com.example.projectone.DBConnection" %>
-<%@ page import="java.sql.Connection" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -32,11 +31,9 @@
 </head>
 <body>
 
-<%@include file="includes/navbar.jsp"%>
-<% Connection conn= DBConnection.getConn();
-    out.print(conn);%>
+
 <%@include file="home.jsp"%>
-<%@include file="includes/footer.jsp"%>
+
 
 </body>
 

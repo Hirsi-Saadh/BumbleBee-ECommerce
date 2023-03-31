@@ -5,6 +5,12 @@
   Time: 1:57 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.example.projectone.DBConnection" %>
+<%@ page import="java.sql.Connection" %>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <style>
     @media screen and (max-width: 1000px) {
         div.hide {
@@ -66,6 +72,10 @@
     }
 </style>
 
+<%--<%@include file="includes/navbar.jsp"%>--%>
+<jsp:include page="includes/navbar.jsp" />
+<% Connection conn= DBConnection.getConn();
+    out.print(conn);%>
 <section style = "background-color: #EAEBED">
 <div class="container-fluid" style="max-width: 1200px;">
     <div class="d-flex container" style="width: 100%">
@@ -160,10 +170,8 @@
     </script>
 </section>
 
+<jsp:include page="carousel/deals.jsp" />
+<%--<%@include file="carousel/deals.jsp"%>--%>
 
-
-
-
-                <%@include file="carousel/deals.jsp"%>
-
-
+<jsp:include page="includes/footer.jsp" />
+<%--<%@include file="includes/footer.jsp"%>--%>

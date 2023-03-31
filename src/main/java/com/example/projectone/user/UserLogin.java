@@ -1,11 +1,16 @@
 package com.example.projectone.user;
 
+import com.example.projectone.DBConnection;
+
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Base64;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static java.lang.System.out;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 @WebServlet(name = "userLogin", value = "/user-login")
 public class UserLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
@@ -28,7 +33,7 @@ public class UserLogin extends HttpServlet {
         String hashedPassword = hashPassword(password);
 
         UserService userService = new UserService();
-        User user = userService.getUser(email, hashedPassword);
+        User user = userService.authenticateUser(email, hashedPassword);
 
         if (user != null) {
             // Set session attribute to indicate that the user is logged in
@@ -36,16 +41,12 @@ public class UserLogin extends HttpServlet {
             session.setAttribute("loggedIn", true);
             session.setAttribute("loggedInUser", user);
 
-
-            // Redirect to home page
-            response.sendRedirect("index.jsp");
+            // Forward to home page
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
             // Show error message on login page
-            // Display an alert box with an error message
-            String message = "Incorrect email or password";
-            out.println("<script>alert('" + message + "');</script>");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("fuck.jsp");
-            dispatcher.include(request, response);
+            request.setAttribute("errorMessage", "Invalid email or password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
@@ -63,3 +64,9 @@ public class UserLogin extends HttpServlet {
         return hashedPassword;
     }
 }
+
+
+
+
+
+
