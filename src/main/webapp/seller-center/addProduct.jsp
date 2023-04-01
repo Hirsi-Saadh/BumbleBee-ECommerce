@@ -46,8 +46,23 @@
     <div class="valid-feedback">Looks good!</div>
     <div class="invalid-feedback">Enter valid price</div>
     <br>
-    <label class="form-label" for="image">Image:</label>
+    <label class="form-label" for="image">Cover Image:</label>
     <input class="form-control" type="file" name="image" id="image" >
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Add product image</div>
+    <br>
+    <label class="form-label" for="image2">Image:</label>
+    <input class="form-control" type="file" name="image2" id="image2" >
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Add product image</div>
+    <br>
+    <label class="form-label" for="image3">Image:</label>
+    <input class="form-control" type="file" name="image3" id="image3" >
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Add product image</div>
+    <br>
+    <label class="form-label" for="image4">Image:</label>
+    <input class="form-control" type="file" name="image4" id="image4" >
     <div class="valid-feedback">Looks good!</div>
     <div class="invalid-feedback">Add product image</div>
     <br>
@@ -59,6 +74,9 @@
     <br>
     <label class="form-label" for="color">Color:</label>
     <input class="form-control" type="text" name="color" id="color">
+    <br>
+    <label class="form-label" for="stock">No of Items:</label>
+    <input class="form-control" type="number" name="stock" id="stock">
     <br>
     <button class="btn btn-primary" type="submit">ADD</button>
 </form>

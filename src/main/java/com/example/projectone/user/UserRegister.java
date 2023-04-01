@@ -11,39 +11,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static com.example.projectone.seller.SellerRegister.hashPassword;
+
 @WebServlet(name = "userRegister", value = "/user-register")
 public class UserRegister extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String address = request.getParameter("address");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        private final UserService userService = new UserService(); // Assumes UserService is defined
 
-        // Hash the password using SHA-256
-        String hashedPassword = hashPassword(password);
-
-        User user = new User(username, address, phone, email, hashedPassword);
-        UserService userService = new UserService();
-        userService.addUser(user);
-
-        // Redirect to login page
-        response.sendRedirect("home.jsp");
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                // Render registration form
+                request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 
-private String hashPassword(String password) {
-        String hashedPassword = null;
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                // Get parameters from form
+                String username = request.getParameter("username");
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                String address = request.getParameter("address");
+                String phone = request.getParameter("phone");
 
-        try {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashBytes = md.digest(password.getBytes());
-        hashedPassword = Base64.getEncoder().encodeToString(hashBytes);
-        } catch (NoSuchAlgorithmException e) {
-        e.printStackTrace();
-        }
+                // Create user object
+                User user = new User(username, address, phone, email, password);
 
-        return hashedPassword;
+                // Validate and save user
+                boolean success = userService.saveUser(user); // Assumes UserService has a saveUser method
+
+                if (success) {
+                        // Redirect to login page
+                        response.sendRedirect(request.getContextPath() + "/login");
+                } else {
+                        // Display error message and render registration form
+                        request.setAttribute("errorMessage", "Error registering user");
+                        request.getRequestDispatcher("register.jsp").forward(request, response);
+                }
         }
-        }
+}

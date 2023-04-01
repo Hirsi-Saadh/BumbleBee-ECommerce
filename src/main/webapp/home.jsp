@@ -5,6 +5,8 @@
   Time: 1:57 PM
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.projectone.DBConnection" %>
 <%@ page import="java.sql.Connection" %>
 
@@ -72,10 +74,11 @@
     }
 </style>
 
-<%--<%@include file="includes/navbar.jsp"%>--%>
-<jsp:include page="includes/navbar.jsp" />
+<%@include file="includes/navbar.jsp"%>
+<%--<jsp:include page="includes/navbar.jsp" />--%>
 <% Connection conn= DBConnection.getConn();
     out.print(conn);%>
+
 <section style = "background-color: #EAEBED">
 <div class="container-fluid" style="max-width: 1200px;">
     <div class="d-flex container" style="width: 100%">

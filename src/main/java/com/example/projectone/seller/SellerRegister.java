@@ -43,7 +43,7 @@ public class SellerRegister extends HttpServlet {
         }
     }
 
-    private String hashPassword(String password) {
+    public static String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedPasswordBytes = md.digest(password.getBytes());

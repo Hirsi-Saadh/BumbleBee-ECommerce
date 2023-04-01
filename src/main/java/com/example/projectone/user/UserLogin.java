@@ -1,14 +1,12 @@
 package com.example.projectone.user;
 
 import com.example.projectone.DBConnection;
+import com.example.projectone.seller.SellerRegister;
 
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.Base64;
 
 import javax.servlet.ServletException;
@@ -18,50 +16,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
+import static com.example.projectone.seller.SellerRegister.hashPassword;
+
 
 @WebServlet(name = "userLogin", value = "/user-login")
 public class UserLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private final UserService userService = new UserService(); // Assumes UserService is defined
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Render login form
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Get parameters from form
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Hash the password using SHA-256
-        String hashedPassword = hashPassword(password);
-
-        UserService userService = new UserService();
-        User user = userService.authenticateUser(email, hashedPassword);
+        // Validate user
+        User user = userService.validateUser(email, password); // Assumes UserService has a validateUser method
 
         if (user != null) {
-            // Set session attribute to indicate that the user is logged in
+            // Create session and redirect to home page
             HttpSession session = request.getSession();
-            session.setAttribute("loggedIn", true);
-            session.setAttribute("loggedInUser", user);
-
-            // Forward to home page
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            session.setAttribute("name", user.getUsername());
+            session.setAttribute("userEmail", user.getEmail());
+            response.sendRedirect("home.jsp");
         } else {
-            // Show error message on login page
+            // Display error message and render login form
             request.setAttribute("errorMessage", "Invalid email or password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
-    }
-
-    private String hashPassword(String password) {
-        String hashedPassword = null;
-
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] hashBytes = md.digest(password.getBytes());
-            hashedPassword = Base64.getEncoder().encodeToString(hashBytes);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-        return hashedPassword;
     }
 }
 

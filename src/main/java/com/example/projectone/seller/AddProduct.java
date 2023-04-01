@@ -35,17 +35,27 @@ public class AddProduct extends HttpServlet {
         String dimensions = request.getParameter("dimensions");
         String weight = request.getParameter("weight");
         String color = request.getParameter("color");
+        int stock = Integer.parseInt(request.getParameter("stock"));
         InputStream inputStream = null; // input stream of the upload file
+        InputStream inputStream2 = null;
+        InputStream inputStream3 = null;
+        InputStream inputStream4 = null;
 
         // obtains the upload file part in this multipart request
         Part filePart = request.getPart("image");
+        Part filePart2 = request.getPart("image2");
+        Part filePart3 = request.getPart("image3");
+        Part filePart4 = request.getPart("image4");
         if (filePart != null) {
             // obtains input stream of the upload file
             inputStream = filePart.getInputStream();
+            inputStream2 = filePart2.getInputStream();
+            inputStream3 = filePart3.getInputStream();
+            inputStream4 = filePart4.getInputStream();
         }
 
         // insert product data into database
-        String sql = "INSERT INTO products (name, description, category, price, image, dimensions, weight, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO products (name, description, category, price, image, imagetwo, imagethree, imagefour, dimensions, weight, color, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
 
             Connection conn = DBConnection.getConn();
@@ -59,10 +69,23 @@ public class AddProduct extends HttpServlet {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(5, inputStream);
             }
+            if (inputStream2 != null) {
+                // fetches input stream of the upload file for the blob column
+                statement.setBlob(6, inputStream2);
+            }
+            if (inputStream3 != null) {
+                // fetches input stream of the upload file for the blob column
+                statement.setBlob(7, inputStream3);
+            }
+            if (inputStream4 != null) {
+                // fetches input stream of the upload file for the blob column
+                statement.setBlob(8, inputStream4);
+            }
 
-            statement.setString(6, dimensions);
-            statement.setString(7, weight);
-            statement.setString(8, color);
+            statement.setString(9, dimensions);
+            statement.setString(10, weight);
+            statement.setString(11, color);
+            statement.setInt(12, stock);
 
             statement.executeUpdate();
             statement.close();

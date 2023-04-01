@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static com.example.projectone.seller.SellerRegister.hashPassword;
+
 @WebServlet(name = "sellerLogin", value = "/seller-login")
 public class SellerLogin extends HttpServlet {
 
@@ -32,18 +34,5 @@ public class SellerLogin extends HttpServlet {
         }
     }
 
-    private String hashPassword(String password) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] hashedPasswordBytes = md.digest(password.getBytes());
-            StringBuilder sb = new StringBuilder();
-            for (byte b : hashedPasswordBytes) {
-                sb.append(String.format("%02x", b));
-            }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
+
 }

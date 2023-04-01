@@ -38,9 +38,11 @@
             <th>Category</th>
             <th>Price</th>
             <th>Image</th>
+            <th>Image #2</th>
             <th>Dimensions</th>
             <th>Weight</th>
             <th>Color</th>
+            <th>Stock</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -53,9 +55,11 @@
                 <td>${product.category}</td>
                 <td>${product.price}</td>
                 <td><img style="height: 100px" src="data:image/jpeg;base64,${product.imageBase64}"/></td>
+                <td><img style="height: 100px" src="data:image/jpeg;base64,${product.image2Base64}"/></td>
                 <td>${product.dimensions}</td>
                 <td>${product.weight}</td>
                 <td>${product.color}</td>
+                <td>${product.stock}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/seller-center/updateProduct.jsp?id=${product.id}"><i class="fa fa-pencil" style="color: black"></i></a>
                     &nbsp;<a href="./delete-product?productId=${product.id}"><i class="fa fa-trash" style="color: red"></i></a>

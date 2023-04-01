@@ -1,5 +1,6 @@
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--suppress XmlDuplicatedId --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: itzme
@@ -7,7 +8,20 @@
   Time: 9:53 PM
   To change this template use File | Settings | File Templates.
 --%>
+
+
+
 <style>
+    @media screen and (max-width: 600px) {
+        div.hide {
+            display: none;
+        }
+    }
+
+    body{
+        background-color: #EAEBED;
+    }
+
     .modal {
         display: none;
         position: fixed;
@@ -56,12 +70,22 @@
 <div class="container-fluid" style="width:100%; background-color: #a6a3a3">
     <div class="container-fluid d-flex" style="height: 25px; max-width: 1200px">
         <div class="container fluid " style="width:75%">
-            <p>wednesday</p>
+            <c:if test="${not empty sessionScope.name}">
+            <p>Welcome, <c:out value="${sessionScope.name}"/>!  <c:out value="${sessionScope.userEmail}"/></p>
+            </c:if>
         </div>
 
+        <c:if test="${empty sessionScope.name}">
         <div class="container fluid " style="width:25%">
             <a href="seller-center" style="text-decoration: none" class="link-light">BEE CENTER</a>
         </div>
+        </c:if>
+
+        <c:if test="${not empty sessionScope.name}">
+        <div class="container fluid " style="width:25%">
+            <a href="user-logout" style="text-decoration: none" class="link-light">LOGOUT</a>
+        </div>
+        </c:if>
     </div>
 </div>
 
@@ -109,10 +133,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav2">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart fa-lg"></i></a>
+                    <a class="nav-link" href="viewCart"><i class="fa fa-shopping-cart fa-lg"></i></a>
                 </li>
 
                 <li class="nav-item">
@@ -122,21 +146,19 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <%--                        <c:if test="${sessionScope.loggedIn}">--%>
-                            <%--                            <form action="user-logout" method="post">--%>
-                            <%--                                <button type="submit">Logout</button>--%>
-                            <%--                            </form>--%>
-                            <%--                        </c:if>--%>
+                            <c:if test="${not empty sessionScope.name}">
+                                <li><a class="dropdown-item" href="#"><c:out value="${sessionScope.name}"/>'s Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="user-logout" >Logout</a></li>
+                            </c:if>
 
-                            <!-- If the user is not logged in, show a login button -->
-                            <%--                        <c:if test="${empty sessionScope.loggedIn}">--%>
-                            <li><a type="button" id="login-button" class="dropdown-item">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Forgot Password</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sign Up</a></li>
-
-
-                            <%--                        </c:if>--%>
+                                <!-- If the user is not logged in, show a login button -->
+                            <c:if test="${empty sessionScope.name}">
+                                <li><a type="button" id="login-button" class="dropdown-item">Login</a></li>
+                                <li><a class="dropdown-item" href="#">Forgot Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Sign Up</a></li>
+                            </c:if>
                         </ul>
                     </div>
                 </li>
@@ -151,11 +173,11 @@
         <span class="close">&times;</span>
         <h2>Login</h2>
         <form id="login-form" action="user-login" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Username</label>
+            <input type="email" id="email" name="email" required>
             <br>
             <label for="password">Passwords</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="pass" name="password" required>
             <br>
             <button type="submit">Login</button>
             <button type="button" id="register-button">Register</button>
@@ -240,16 +262,4 @@
         }
     }
 
-    <%--// Check if the user is logged in and modify the button text and behavior accordingly--%>
-    <%--if (${sessionScope.loggedIn}) {--%>
-    <%--    // loginButton.textContent = "Logout";--%>
-    <%--    &lt;%&ndash;loginButton.onclick = function() {&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    // Submit a logout form to the logout servlet&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    var form = document.createElement("form");&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    form.setAttribute("method", "post");&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    form.setAttribute("action", "${pageContext.request.contextPath}/logout");&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    document.body.appendChild(form);&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;    form.submit();&ndash;%&gt;--%>
-    <%--    &lt;%&ndash;}&ndash;%&gt;--%>
-    <%--}--%>
 </script>
