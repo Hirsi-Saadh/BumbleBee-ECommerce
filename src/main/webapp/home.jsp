@@ -170,11 +170,14 @@
         function gotodeals() {
             window.location.href = "#";
         }
+
+
     </script>
 </section>
 
 <jsp:include page="carousel/deals.jsp" />
 <%--<%@include file="carousel/deals.jsp"%>--%>
+<%--<jsp:include page="/product-carousel"/>--%>
 
 <jsp:include page="includes/footer.jsp" />
 <%--<%@include file="includes/footer.jsp"%>--%>

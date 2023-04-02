@@ -21,7 +21,13 @@ public class AddtoCartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+
         HttpSession session = request.getSession();
+        if (session.getAttribute("userEmail") == null) {
+            response.sendRedirect("login.jsp");
+        }else{
+
         String userEmail = (String) session.getAttribute("userEmail");
 //        int userId = (int) session.getAttribute("userId");
         int productId = Integer.parseInt(request.getParameter("productId"));
@@ -57,6 +63,8 @@ public class AddtoCartServlet extends HttpServlet {
             response.sendRedirect("error.jsp");
         }
     }
+    }
+
 }
 
 

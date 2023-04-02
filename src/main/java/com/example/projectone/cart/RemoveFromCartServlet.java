@@ -19,13 +19,13 @@ import static com.example.projectone.seller.Product.closeResources;
 public class RemoveFromCartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         String userEmail = (String) session.getAttribute("userEmail");
 
-        int productId = Integer.parseInt(request.getParameter("id"));
+        int productId = Integer.parseInt(request.getParameter("productId1"));
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -41,8 +41,9 @@ public class RemoveFromCartServlet extends HttpServlet {
             e.printStackTrace();
         } finally {
             closeResources(conn, stmt, null);
+            response.sendRedirect("viewCart");
         }
 
-        response.sendRedirect("viewCart");
+
     }
 }

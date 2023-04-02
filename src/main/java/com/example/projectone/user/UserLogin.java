@@ -45,7 +45,7 @@ public class UserLogin extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("name", user.getUsername());
             session.setAttribute("userEmail", user.getEmail());
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("homepage");
         } else {
             // Display error message and render login form
             request.setAttribute("errorMessage", "Invalid email or password");

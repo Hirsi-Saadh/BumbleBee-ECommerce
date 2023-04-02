@@ -1,6 +1,8 @@
-package com.example.projectone.cart;
+package com.example.projectone.order;
 
 import com.example.projectone.DBConnection;
+import com.example.projectone.cart.ShoppingCart;
+import com.example.projectone.cart.ShoppingCartItem;
 import com.example.projectone.seller.Product;
 import com.example.projectone.user.User;
 
@@ -21,8 +23,8 @@ import java.util.List;
 
 import static com.example.projectone.seller.Product.closeResources;
 
-@WebServlet("/viewCart")
-public class ViewCartServlet extends HttpServlet {
+@WebServlet("/orderConfirmation")
+public class OrderConfirmation extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -69,11 +71,7 @@ public class ViewCartServlet extends HttpServlet {
             request.setAttribute("items", items);
             request.setAttribute("total", total); // Add the total price to the request
 
-            // retrieve cart items from database
-
-            session.setAttribute("cartItems", items);
-
-            request.getRequestDispatcher("user/viewCart.jsp").forward(request, response);
+            request.getRequestDispatcher("user/checkout.jsp").forward(request, response);
         }
 
     }

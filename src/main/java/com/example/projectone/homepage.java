@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "ProductCarousel", value = "/product-carousel")
-public class ProductCarousel extends HttpServlet {
+@WebServlet(name = "homepage", value = "/homepage")
+public class homepage extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final ProductDAO productDAO = new ProductDAO();
 
