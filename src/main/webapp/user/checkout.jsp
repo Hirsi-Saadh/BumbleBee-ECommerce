@@ -52,6 +52,26 @@
                     <input type="text" class="form-control" id="district" name="district" required>
                 </div>
 
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="singlePayment" checked>
+                                <label class="form-check-label" for="paymentMethod">
+                                    One Time Payment
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="threeMonthInstallment">
+                                <label class="form-check-label" for="paymentMethod">
+                                    Three Month Installment <p>3 Month x LKR <b><span id="result"></span>.00</b></p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
             </div>
             <div class="col-md-6">
                 <table class="table">
@@ -84,6 +104,18 @@
         </div>
     </form>
 </div>
+
+<script>
+    const result = ${total} / 3;
+    document.getElementById('result').textContent = result;
+
+    let total = ${total}; // replace with your total value
+    if (total > 15000) {
+        // hide the "Three Month Installment" radio button
+        document.querySelector('input[value="threeMonthInstallment"]').style.display = "none";
+    }
+</script>
+
 
 <jsp:include page="../includes/footer.jsp" />
 </body>
