@@ -84,18 +84,18 @@
     <div class="d-flex container" style="width: 100%">
         <div class="bg-light container hide" style = "width: 25%">
             <div class="list-group list-group-light" style="border-radius: 0px 0px 0px 0px; height: 100%">
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Electronic Devices</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Electronic Accessories</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">TV & Home Appliances</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Health & Beauty</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Babies & Toys</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Groceries & Pets</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Home & Lifestyle</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Women's Fashion</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Men's Fashion</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Watches & Accessories</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Sports & Outdoor</a>
-                <a href="#" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Automotive & Motorbike</a>
+                <a href="categories.jsp?filter=1" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Electronic Devices</a>
+                <a href="categories.jsp?filter=2" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Electronic Accessories</a>
+                <a href="categories.jsp?filter=3" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">TV & Home Appliances</a>
+                <a href="categories.jsp?filter=4" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Health & Beauty</a>
+                <a href="categories.jsp?filter=5" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Babies & Toys</a>
+                <a href="categories.jsp?filter=6" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Groceries & Pets</a>
+                <a href="categories.jsp?filter=7" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Home & Lifestyle</a>
+                <a href="categories.jsp?filter=8" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Women's Fashion</a>
+                <a href="categories.jsp?filter=9" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Men's Fashion</a>
+                <a href="categories.jsp?filter=10" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Watches & Accessories</a>
+                <a href="categories.jsp?filter=11" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Sports & Outdoor</a>
+                <a href="categories.jsp?filter=12" class="list-group-item list-group-item-action px-3 border-0 fs-6" onmouseover="this.style.color='#0275d8';" onmouseout="this.style.color='#292b2c';">Automotive & Motorbike</a>
             </div>
         </div>
 

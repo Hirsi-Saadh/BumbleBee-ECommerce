@@ -32,18 +32,18 @@
     <label for="category" class="form-label">Product Category:</label>
     <select class="form-select" aria-label="select category" id="category" name="category">
         <option selected>Open this select menu</option>
-        <option value="Electronic Devices">Electronic Devices</option>
-        <option value="Electronic Accessories">Electronic Accessories</option>
-        <option value="TV & Home Appliances">TV & Home Appliances</option>
-        <option value="Health & Beauty">Health & Beauty</option>
-        <option value="Babies & Toys">Babies & Toys</option>
-        <option value="Groceries & Pets">Groceries & Pets</option>
-        <option value="Home & Lifestyle">Home & Lifestyle</option>
-        <option value="Women's Fashion">Women's Fashion</option>
-        <option value="Men's Fashion">Men's Fashion</option>
-        <option value="Watches & Accessories">Watches & Accessories</option>
-        <option value="Sports & Outdoor">Sports & Outdoor</option>
-        <option value="Automotive & Motorbike">Automotive & Motorbike</option>
+        <option value="1">Electronic Devices</option>
+        <option value="2">Electronic Accessories</option>
+        <option value="3">TV & Home Appliances</option>
+        <option value="4">Health & Beauty</option>
+        <option value="5">Babies & Toys</option>
+        <option value="6">Groceries & Pets</option>
+        <option value="7">Home & Lifestyle</option>
+        <option value="8">Women's Fashion</option>
+        <option value="9">Men's Fashion</option>
+        <option value="10">Watches & Accessories</option>
+        <option value="11">Sports & Outdoor</option>
+        <option value="12">Automotive & Motorbike</option>
     </select>
     <br>
 

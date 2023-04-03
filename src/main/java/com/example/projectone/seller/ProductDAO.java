@@ -3,10 +3,7 @@ package com.example.projectone.seller;
 import com.example.projectone.DBConnection;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,4 +38,10 @@ public class ProductDAO {
 
         return products;
     }
-}
+
+
+
+
+    }
+
+

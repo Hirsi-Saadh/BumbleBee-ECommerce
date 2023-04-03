@@ -97,15 +97,15 @@
     <div class="container-fluid d-flex" style="max-width: 1200px;">
 
 
-        <a class="navbar-brand" href="https://techzap.lk"><img src="resources/images/navbar/logo.png" style="max-height: 75px;"></a>
+        <a class="navbar-brand" href="https://techzap.lk"><img src="${pageContext.request.contextPath}/resources/images/navbar/logo.png" style="max-height: 75px;"></a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/homepage">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product-carousel">Shop</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/homepage">Shop</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
@@ -115,15 +115,10 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex">
-            <input class="form-control" type="search" placeholder="Search in Bumblebee" aria-label="Search" style="border-radius: 75px 0px 0px 75px; margin-left: 0; max-width: 65%;">
+        <form class="d-flex" method="get" action="${pageContext.request.contextPath}/search">
+            <input class="form-control" type="search" placeholder="Search in Bumblebee" name="keyword" id="keyword" style="border-radius: 75px 0px 0px 75px; margin-left: 0; width: 95%;">
 
-            <select class="hide form-select" aria-label="Default select example" style="border-radius: 0px 0px 0px 00px; margin-left: 0; max-width: 35%;">
-                <option selected>Categories</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+
             <button class="btn btn-outline-warning" type="submit" style="border-radius: 0px 75px 75px 0px; margin-right: 0;">
                 <i class="fa fa-search"></i>
             </button>
@@ -136,7 +131,7 @@
         <div class="collapse navbar-collapse" id="navbarNav2">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="viewCart"><i class="fa fa-shopping-cart fa-lg"></i></a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/viewCart"><i class="fa fa-shopping-cart fa-lg"></i></a>
                 </li>
 
                 <li class="nav-item">
@@ -149,7 +144,7 @@
                             <c:if test="${not empty sessionScope.name}">
                                 <li><a class="dropdown-item" href="#"><c:out value="${sessionScope.name}"/>'s Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="user-logout" >Logout</a></li>
+                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user-logout" >Logout</a></li>
                             </c:if>
 
                                 <!-- If the user is not logged in, show a login button -->
@@ -172,7 +167,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Login</h2>
-        <form id="login-form" action="user-login" method="post">
+        <form id="login-form" action="${pageContext.request.contextPath}/user-login" method="post">
             <label for="email">Username</label>
             <input type="email" id="email" name="email" required>
             <br>
@@ -190,7 +185,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Register</h2>
-        <form class="needs-validation" id="register-form" action="user-register" method="post">
+        <form class="needs-validation" id="register-form" action="${pageContext.request.contextPath}/user-register" method="post">
             <label class="form-label" for="username">Username</label>
             <input class="form-control" type="text" id="username" name="username" required>
             <br>
