@@ -141,6 +141,7 @@ public class ProcessOrderServlet extends HttpServlet {
         List<ShoppingCartItem> cartItems = (List<ShoppingCartItem>) request.getSession().getAttribute("cartItems");
 
         // save order to database
+        int orderId;
         try (Connection conn = DBConnection.getConn()) {
             // insert order
             String sql = "INSERT INTO orders (user_email, name, phone, street, city, district, total, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -159,7 +160,7 @@ public class ProcessOrderServlet extends HttpServlet {
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                int orderId = generatedKeys.getInt(1);
+                orderId = generatedKeys.getInt(1);
                 // insert order items
                 for (ShoppingCartItem cartItem : cartItems) {
                     sql = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
@@ -183,6 +184,10 @@ public class ProcessOrderServlet extends HttpServlet {
                     statement.setInt(2, cartItem.getProduct().getId());
                     statement.executeUpdate();
                 }
+                int OrderNumber = generatedKeys.getInt(1);
+                request.setAttribute("OrderNumber", OrderNumber);
+
+
             } else {
                 throw new SQLException("Creating order failed, no ID obtained.");
             }
@@ -196,8 +201,9 @@ public class ProcessOrderServlet extends HttpServlet {
         cartItems.clear();
         request.getSession().removeAttribute("cartItems");
 
+
         // redirect to confirmation page
-        response.sendRedirect(request.getContextPath() + "/monthly-installment.jsp");
+        response.sendRedirect(request.getContextPath() + "/user/monthly-installment.jsp?order_id=" + orderId);
 
     }
 
