@@ -62,7 +62,7 @@
                 <td>${product.stock}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/seller-center/updateProduct.jsp?id=${product.id}"><i class="fa fa-pencil" style="color: black"></i></a>
-                    &nbsp;<a href="./delete-product?productId=${product.id}"><i class="fa fa-trash" style="color: red"></i></a>
+                    &nbsp;<a href="${pageContext.request.contextPath}/seller-center//delete-product?productId=${product.id}"><i class="fa fa-trash" style="color: red"></i></a>
                 </td>
             </tr>
         </c:forEach>
@@ -72,8 +72,5 @@
 
 </div>
 </div>
-<% Connection conn= DBConnection.getConn();
-    out.print(conn);%>
-
 </body>
 </html>

@@ -94,10 +94,6 @@
     </div>
 </div>
 
-<form action="../view-products" method="GET">
-<%--    <input type="hidden" name="param1" value="value1">--%>
-    <button type="submit">Go to MyServlet</button>
-</form>
 
 <script>
     (function () {

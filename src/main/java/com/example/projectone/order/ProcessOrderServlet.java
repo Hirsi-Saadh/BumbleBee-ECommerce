@@ -61,6 +61,7 @@ public class ProcessOrderServlet extends HttpServlet {
         String city = request.getParameter("city");
         String district = request.getParameter("district");
         String paymentMethod = request.getParameter("paymentMethod");
+        String status = "PAID";
 
         // get order items from session
         List<ShoppingCartItem> cartItems = (List<ShoppingCartItem>) request.getSession().getAttribute("cartItems");
@@ -68,7 +69,7 @@ public class ProcessOrderServlet extends HttpServlet {
         // save order to database
         try (Connection conn = DBConnection.getConn()) {
             // insert order
-            String sql = "INSERT INTO orders (user_email, name, phone, street, city, district, total, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO orders (user_email, name, phone, street, city, district, total, payment_method, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
             PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, userEmail);
             statement.setString(2, name);
@@ -78,6 +79,7 @@ public class ProcessOrderServlet extends HttpServlet {
             statement.setString(6, district);
             statement.setDouble(7, total);
             statement.setString(8, paymentMethod);
+            statement.setString(9, status);
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new SQLException("Creating order failed, no rows affected.");
@@ -122,7 +124,7 @@ public class ProcessOrderServlet extends HttpServlet {
             request.getSession().removeAttribute("cartItems");
 
             // redirect to confirmation page
-            response.sendRedirect(request.getContextPath() + "/confirmation.jsp");
+            response.sendRedirect(request.getContextPath() + "/payment-confirmation.jsp");
 
     }
 

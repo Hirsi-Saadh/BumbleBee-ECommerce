@@ -76,8 +76,7 @@
 
 <%@include file="includes/navbar.jsp"%>
 <%--<jsp:include page="includes/navbar.jsp" />--%>
-<% Connection conn= DBConnection.getConn();
-    out.print(conn);%>
+
 
 <section style = "background-color: #EAEBED">
 <div class="container-fluid" style="max-width: 1200px;">

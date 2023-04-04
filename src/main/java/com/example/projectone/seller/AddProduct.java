@@ -103,6 +103,6 @@ public class AddProduct extends HttpServlet {
 //        response.getWriter().write("<script>alert('Product added successfully!')</script>");
 
         // redirect to product list page
-        response.sendRedirect("./seller-center/product.jsp");
+        response.sendRedirect("view-products");
     }
 }

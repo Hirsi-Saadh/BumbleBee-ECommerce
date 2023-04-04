@@ -22,6 +22,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <meta charset="UTF-8">
+    <style>
+     .btn {
+            color: #a2822a;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: none;
+            border: 1px solid #a2822a;
+            padding: 6px 14px;
+            margin-top: 5px;
+            line-height: 16px;
+            border-radius: 20px;
+
+        }
+     .btn:focus {
+            color: #fff;
+            background: #a2822a;
+            box-shadow: none;
+        }
+
+     .btn i {
+         font-size: 14px;
+         font-weight: bold;
+         margin-left: 5px;
+     }
+    </style>
   <title>All Products</title>
 </head>
 <body>
@@ -61,6 +87,7 @@
           <p class="card-text"><strong>Category: </strong><%=productCategory %></p>
           <p class="card-text"><strong>Stock: </strong><%= productStock %></p>
           <p class="card-text"><strong>Weight: </strong><%= productWeight %>g</p>
+
           <a href="productdetails.jsp?id=<%= productId %>" class="btn btn-primary">View Product</a>
         </div>
       </div>
@@ -68,6 +95,7 @@
     <% } %>
   </div>
 </div>
+<jsp:include page="includes/footer.jsp" />
 </body>
 </html>
 

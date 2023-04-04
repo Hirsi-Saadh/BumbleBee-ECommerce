@@ -4,8 +4,10 @@ import com.example.projectone.DBConnection;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,8 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet(name = "ProductUpdateServlet", value = "/product-update")
+@WebServlet(name = "ProductUpdate", value = "/update-product")
 @MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
+
 public class UpdateProduct extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +30,7 @@ public class UpdateProduct extends HttpServlet {
             throws ServletException, IOException {
 
         // get form data
-        String productId = request.getParameter("productId");
+        int productId = Integer.parseInt(request.getParameter("productId"));
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String category = request.getParameter("category");
@@ -35,17 +38,27 @@ public class UpdateProduct extends HttpServlet {
         String dimensions = request.getParameter("dimensions");
         String weight = request.getParameter("weight");
         String color = request.getParameter("color");
+        int stock = Integer.parseInt(request.getParameter("stock"));
         InputStream inputStream = null; // input stream of the upload file
+        InputStream inputStream2 = null;
+        InputStream inputStream3 = null;
+        InputStream inputStream4 = null;
 
         // obtains the upload file part in this multipart request
         Part filePart = request.getPart("image");
+        Part filePart2 = request.getPart("image2");
+        Part filePart3 = request.getPart("image3");
+        Part filePart4 = request.getPart("image4");
         if (filePart != null) {
             // obtains input stream of the upload file
             inputStream = filePart.getInputStream();
+            inputStream2 = filePart2.getInputStream();
+            inputStream3 = filePart3.getInputStream();
+            inputStream4 = filePart4.getInputStream();
         }
 
         // update product data in database
-        String sql = "UPDATE products SET name = ?, description = ?, category = ?, price = ?, image = ?, dimensions = ?, weight = ?, color = ? WHERE id = ?";
+        String sql = "UPDATE products SET name=?, description=?, category=?, price=?, weight=?, stock=? WHERE id=?";
         try {
 
             Connection conn = DBConnection.getConn();
@@ -55,15 +68,13 @@ public class UpdateProduct extends HttpServlet {
             statement.setString(3, category);
             statement.setBigDecimal(4, price);
 
-            if (inputStream != null) {
-                // fetches input stream of the upload file for the blob column
-                statement.setBlob(5, inputStream);
-            }
 
-            statement.setString(6, dimensions);
-            statement.setString(7, weight);
-            statement.setString(8, color);
-            statement.setString(9, productId);
+
+            statement.setString(5, weight);
+
+            statement.setInt(6, stock);
+
+            statement.setInt(7, productId);
 
             statement.executeUpdate();
             statement.close();
@@ -77,6 +88,6 @@ public class UpdateProduct extends HttpServlet {
         response.getWriter().write("<script>alert('Product updated successfully!')</script>");
 
         // redirect to product list page
-        response.sendRedirect("./seller-center/product.jsp");
+        response.sendRedirect("view-products");
     }
 }

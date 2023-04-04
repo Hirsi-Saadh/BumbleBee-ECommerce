@@ -71,7 +71,7 @@
     <div class="container-fluid d-flex" style="height: 25px; max-width: 1200px">
         <div class="container fluid " style="width:75%">
             <c:if test="${not empty sessionScope.name}">
-            <p>Welcome, <c:out value="${sessionScope.name}"/>!  <c:out value="${sessionScope.userEmail}"/></p>
+            <p>Welcome, <c:out value="${sessionScope.name}"/> !</p>
             </c:if>
         </div>
 
