@@ -156,11 +156,11 @@
 
     <script>
         function gotoproducts() {
-            window.location.href = "#";
+            window.location.href = "${pageContext.request.contextPath}/products.jsp";
         }
 
         function gotopay() {
-            window.location.href = "#";
+            window.location.href = "${pageContext.request.contextPath}/recentorders.jsp";
         }
 
         function gotomart() {

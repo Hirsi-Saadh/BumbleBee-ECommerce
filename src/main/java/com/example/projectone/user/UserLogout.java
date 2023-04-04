@@ -15,14 +15,14 @@ public class UserLogout extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("homepage");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("homepage");
     }
 
 
