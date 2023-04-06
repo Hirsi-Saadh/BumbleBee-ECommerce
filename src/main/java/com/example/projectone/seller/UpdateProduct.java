@@ -84,8 +84,13 @@ public class UpdateProduct extends HttpServlet {
         }
 
         // display success message in alert box
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script>alert('Product updated successfully!')</script>");
+//        response.setContentType("text/html;charset=UTF-8");
+//        response.getWriter().write("<script>alert('Product updated successfully!')</script>");
+
+                response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<script>alert('Product Updated successfully')</script>");
+        out.close();
 
         // redirect to product list page
         response.sendRedirect("view-products");

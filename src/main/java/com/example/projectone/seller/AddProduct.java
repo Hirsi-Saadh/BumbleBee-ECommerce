@@ -95,14 +95,19 @@ public class AddProduct extends HttpServlet {
         }
 
         // display success message in alert box
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("<script>alert('Product added successfully!')</script>");
-
-        // display success message in alert box
 //        response.setContentType("text/html;charset=UTF-8");
 //        response.getWriter().write("<script>alert('Product added successfully!')</script>");
 
-        // redirect to product list page
+        // display success message in alert box
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write("<script>alert('Product added successfully!')</script>");
+
+//        // redirect to product list page
+//        response.setContentType("text/html");
+//        PrintWriter out = response.getWriter();
+//        out.println("<script>alert('Product added successfully')</script>");
+//        out.close();
+
         response.sendRedirect("view-products");
     }
 }

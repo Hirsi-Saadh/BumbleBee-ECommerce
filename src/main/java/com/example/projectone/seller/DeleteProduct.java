@@ -34,13 +34,13 @@ public class DeleteProduct extends HttpServlet {
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>alert('Product deleted successfully!')</script>");
-                out.println("<meta http-equiv='refresh' content='0; URL=./seller-center/product.jsp'>");
+                out.println("<meta http-equiv='refresh' content='0; URL=view-products'>");
             } else {
                 // If the deletion failed, display an error message in an alert box
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>alert('Product deletion failed!')</script>");
-                out.println("<meta http-equiv='refresh' content='0; URL=./seller-center/product.jsp'>");
+                out.println("<meta http-equiv='refresh' content='0; URL=view-products'>");
             }
         } catch (SQLException e) {
             e.printStackTrace();
