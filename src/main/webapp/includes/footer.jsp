@@ -51,7 +51,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4" style="color: #a2822a">
-                      Company name
+                      Bumble BEE
                     </h6>
                     <p>
                         Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -61,24 +61,7 @@
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4" style="color: #a2822a">
-                        Products
-                    </h6>
-                    <p>
-                        <a href="#" class="text-reset">Angular</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-reset">React</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-reset">Vue</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-reset">Laravel</a>
-                    </p>
-                </div>
+
                 <!-- Grid column -->
 
                 <!-- Grid column -->
@@ -88,16 +71,16 @@
                         Useful links
                     </h6>
                     <p>
-                        <a href="#" class="text-reset">Pricing</a>
+                        <a href="${pageContext.request.contextPath}/homepage" class="text-reset">Home</a>
                     </p>
                     <p>
-                        <a href="#" class="text-reset">Settings</a>
+                        <a href="${pageContext.request.contextPath}/products.jsp" class="text-reset">Shop</a>
                     </p>
                     <p>
-                        <a href="#" class="text-reset">Orders</a>
+                        <a href="#" class="text-reset">About Us</a>
                     </p>
                     <p>
-                        <a href="#" class="text-reset">Help</a>
+                        <a href="#" class="text-reset">Contact Us</a>
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -106,13 +89,13 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4" style="color: #a2822a">Contact</h6>
-                    <p><i class="fa fa-home me-3" style="color: #a2822a"></i> New York, NY 10012, US</p>
+
                     <p>
                         <i class="fa fa-envelope me-3" style="color: #a2822a"></i>
-                        info@example.com
+                        itzmesaadh@gmail.com
                     </p>
-                    <p><i class="fa fa-phone me-3" style="color: #a2822a"></i> + 01 234 567 88</p>
-                    <p><i class="fa fa-print me-3" style="color: #a2822a"></i> + 01 234 567 89</p>
+                    <p><i class="fa fa-phone me-3" style="color: #a2822a"></i> + 94 76 813 7599</p>
+                    <p><i class="fa fa-print me-3" style="color: #a2822a"></i> + 94 70 357 7599</p>
                 </div>
                 <!-- Grid column -->
             </div>
@@ -124,8 +107,7 @@
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: #d9d9d9">
         <div class="container-fluid">
-        © 2023 Copyright:
-        <a class="text-reset fw-bold" href="https://techzap.lk/">Mohamed Saadh</a>
+        2023 &copy; All Rights Reserved <a class="text-reset fw-bold" href="https://www.instagram.com/itz_me_saadh/"> Mohamed Saadh</a>
         </div>
     </div>
     <!-- Copyright -->
